@@ -1,6 +1,7 @@
 var express = require('express')
   , app = express.createServer()
   , mustache = require("mustache")
+  , fs = require('fs')
 
 var tmpl = {
   compile: function (source, options) {
@@ -24,9 +25,8 @@ var tmpl = {
 }
 
 app.use(express.logger())
-
-app.use(app.router);
 app.use(express.bodyParser());
+app.use(app.router);
 
 app.use("/static/", express.static(__dirname + '/../public'));
 app.set("views", __dirname + "/../views");
@@ -41,6 +41,15 @@ app.get('/', function(req, res){
 
 
 app.post('/signup', function(req, res){
+  if (req.body && req.body.email){
+    var json = JSON.parse(fs.readFileSync(__dirname + "/../signupemails.json", "utf8"))
+    json['emails'].push(req.body.email)
+    fs.writeFileSync(__dirname + "/../signupemails.json", JSON.stringify(json))
+  }  
+  
+  console.log("!!!!!!!", req.body)
+  res.render('thanks-for-signup.html')
+  
 });
 
 
