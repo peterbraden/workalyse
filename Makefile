@@ -28,6 +28,7 @@ workalyse:
 	cp img/* public/img/
 	cp js/*.js public/js/
 	cp js/tests/vendor/jquery.js public/js/
+	cp templates/*.html public
 
 watch:
 	echo "Watching less files..."; \
