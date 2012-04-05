@@ -2,6 +2,7 @@ var express = require('express')
   , app = express.createServer()
   , mustache = require("mustache")
   , fs = require('fs')
+  , email = require('mailer')
 
 var tmpl = {
   compile: function (source, options) {
@@ -41,13 +42,25 @@ app.get('/', function(req, res){
 
 
 app.post('/signup', function(req, res){
+  
   if (req.body && req.body.email){
+    
     var json = JSON.parse(fs.readFileSync(__dirname + "/../signupemails.json", "utf8"))
     json['emails'].push(req.body.email)
     fs.writeFileSync(__dirname + "/../signupemails.json", JSON.stringify(json))
+  /*
+    email.send({
+      to : req.body.email,
+      from : "signup@workalyse.com",
+      subject : "Welcome to Workalyse",
+      template : __dirname + "/../emails/beta.txt", 
+      host : "localhost",              // smtp server hostname
+       port : "25",                     // smtp server port
+       domain : "localhost"           // domain used by client to identify itself to server
+    })  
+    */
   }  
   
-  console.log("!!!!!!!", req.body)
   res.render('thanks-for-signup.html')
   
 });
