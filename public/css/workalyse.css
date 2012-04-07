@@ -8,15 +8,20 @@
 
 /* Body and structure
 -------------------------------------------------- */
+
 body {
-  position: relative;
-  padding-top: 90px;
   background-color: #fff;
-  background-image: url(../img/grid-18px-masked.png);
-  background-repeat: repeat-x;
-  background-position: 0 40px;
+  background-image: url(../img/grain.jpg);
 }
 
+.bwrap{
+  padding-top: 90px;
+  position: relative;
+  margin:0;
+  background-image: url(../img/logo-on-grain.jpg);
+  background-repeat: no-repeat;
+  background-position: -300px -300px;
+}
 
 /* Tweak navbar brand link to be super sleek
 -------------------------------------------------- */
