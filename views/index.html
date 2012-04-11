@@ -45,6 +45,9 @@
               <li class=''>
                 <a href="#_about">Learn More</a>
               </li>
+              <li class=''>
+                <a class = 'login'data-toggle="modal" href="#loginForm">Login</a>
+              </li>
             </ul>
           </div>
         </div>
@@ -55,7 +58,7 @@
       
       <header class="jumbotron masthead">
         <div class="inner">
-          <h1>Workalyse</h1>
+          <h1><img src='/static/img/logo-h1.png' />Workalyse</h1>
           <p>Improve the way you work by measuring your happiness</p>
         </div>
       </header>
@@ -103,6 +106,28 @@
     </div><!-- /container -->
 
 
+
+    <div class='modal fade' id = "loginForm">
+      <form>
+        <div class='modal-header'>
+          <a class="close" data-dismiss="modal">×</a>
+          <h2>Login</h2>
+        </div>
+        <div class='modal-body'>  
+            <label for="login-email">Email</label>
+            <input id = "login-email" placeholder="name@company-email.com" />
+            
+            <label for="login-pwd">Password</label>
+            <input id = "login-pwd" type="password" />
+        </div>  
+        <div class="modal-footer">
+          <button class='btn btn-primary'>login</button>
+          <a href ="/forgot">Forgot Password</a>
+
+        </div>
+      </form>  
+    </div>
+
     <script src="/static/js/jquery.js"></script>
     <script src="/static/js/google-code-prettify/prettify.js"></script>
     <script src="/static/js/bootstrap-transition.js"></script>
@@ -117,7 +142,7 @@
     <script src="/static/js/bootstrap-collapse.js"></script>
     <script src="/static/js/bootstrap-carousel.js"></script>
     <script src="/static/js/bootstrap-typeahead.js"></script>
-    <script src="/static/js/application.js"></script>
+    <script src="/static/js/workalyse-home.js"></script>
 
     </div>
   </body>

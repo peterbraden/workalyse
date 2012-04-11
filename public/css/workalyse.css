@@ -72,6 +72,12 @@ hr.soften {
   letter-spacing: -1px;
   line-height: 1;
 }
+
+.jumbotron h1 img{
+  padding:20px;
+  vertical-align: text-top;
+}
+
 .jumbotron p {
   margin-bottom: 18px;
   font-weight: 300;
@@ -823,6 +829,7 @@ form.well {
   border: 1px solid #bbb;
   padding:100px;
   border-radius:25px;
+  background-color:#fff;
 }  
 
 /* WORKALYSE !!! */
