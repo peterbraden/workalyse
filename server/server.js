@@ -1,30 +1,10 @@
 var express = require('express')
   , app = express.createServer()
-  , mustache = require("mustache")
   , fs = require('fs')
   , email = require('mailer')
+  , tmpl = require('./fullbeard')
 
-var tmpl = {
-  compile: function (source, options) {
-      if (typeof source == 'string') {
-          return function(options) {
-              options.locals = options.locals || {};
-              options.partials = options.partials || {};
-              if (options.body) // for express.js > v1.0
-                  locals.body = options.body;
-              return mustache.to_html(
-                  source, options.locals, options.partials);
-          };
-      } else {
-          return source;
-      }
-  },
-  render: function (template, options) {
-      template = this.compile(template, options);
-      return template(options);
-  }
-}
-
+console.log(tmpl)
 
 var mailSignup = function(recip){
   
@@ -74,6 +54,13 @@ app.post('/signup', function(req, res){
   res.render('thanks-for-signup.html')
   
 });
+
+
+app.get('/dashboard', function(req, res){
+  
+  
+  res.render('dashboard.html')
+})
 
 
 app.listen(1995)      
